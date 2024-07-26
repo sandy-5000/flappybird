@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-const GRAVITY = 1000
+const GRAVITY = 980
 const MAX_VEL = 600
 const FLAP_SPEED = -500
 var flying = false
 var falling = false
-const START_POS = Vector2(243, 432)
+const START_POS = Vector2(150, 432)
 
 func _ready():
 	reset()
@@ -22,8 +22,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 		return
 	velocity.y += GRAVITY * delta
-	if velocity.y > MAX_VEL:
-		velocity.y = MAX_VEL
 	if flying:
 		rotation = deg_to_rad(velocity.y * 0.05)
 		$AnimatedSprite2D.play("flying")
