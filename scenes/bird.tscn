@@ -31,12 +31,10 @@ script = ExtResource("4_p8uxj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(243, 432)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ddrfv")
 animation = &"flying"
 frame_progress = 0.386128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(242, 432)
 shape = SubResource("CapsuleShape2D_r5ubk")
