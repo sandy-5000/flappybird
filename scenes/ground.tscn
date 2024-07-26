@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgecworm856th"]
+
+[ext_resource type="Texture2D" uid="uid://bjidr2vrxxx74" path="res://assets/images/background/base.png" id="1_0fj5e"]
+[ext_resource type="Script" path="res://scripts/ground.gd" id="1_syl58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_royyq"]
+size = Vector2(977, 112)
+
+[node name="ground" type="Area2D"]
+script = ExtResource("1_syl58")
+
+[node name="Sprite2D_part_1" type="Sprite2D" parent="."]
+position = Vector2(244, 808)
+scale = Vector2(1.45238, 1)
+texture = ExtResource("1_0fj5e")
+
+[node name="Sprite2D_part_2" type="Sprite2D" parent="."]
+position = Vector2(728, 808)
+scale = Vector2(1.45238, 1)
+texture = ExtResource("1_0fj5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(487.5, 808)
+shape = SubResource("RectangleShape2D_royyq")

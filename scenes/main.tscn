@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr3ql0xyi40kp"]
+[gd_scene load_steps=5 format=3 uid="uid://dr3ql0xyi40kp"]
 
 [ext_resource type="PackedScene" uid="uid://b38a3vqhy1ln8" path="res://scenes/background.tscn" id="1_ei6xl"]
 [ext_resource type="PackedScene" uid="uid://fq5nrspvyhni" path="res://scenes/bird.tscn" id="1_laxlo"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_nyy4s"]
+[ext_resource type="PackedScene" uid="uid://cgecworm856th" path="res://scenes/ground.tscn" id="4_3qvkh"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_nyy4s")
@@ -10,3 +11,5 @@ script = ExtResource("1_nyy4s")
 [node name="background" parent="." instance=ExtResource("1_ei6xl")]
 
 [node name="bird" parent="." instance=ExtResource("1_laxlo")]
+
+[node name="ground" parent="." instance=ExtResource("4_3qvkh")]
