@@ -26,6 +26,8 @@ func new_game():
 	game_over = false
 	score = 0
 	scroll = 0
+	for pipe in pipes:
+		pipe.queue_free()
 	pipes.clear()
 	$bird.reset()
 
@@ -48,6 +50,8 @@ func start_game():
 	$bird.flap()
 	$Timer.start()
 
+func is_dead_pipe(pipe):
+	return pipe.position.x + 500 < 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -57,6 +61,11 @@ func _process(delta):
 	if scroll >= screen_size.x:
 		scroll = 0
 	$ground.position.x = -scroll
+	while len(pipes):
+		if not is_dead_pipe(pipes[0]):
+			break
+		var pipe = pipes.pop_front()
+		pipe.queue_free()
 	for pipe in pipes:
 		pipe.position.x -= SCROLL_SPEED
 
@@ -81,7 +90,7 @@ func hit_pipe(body):
 func increase_score(body):
 	if body.name == 'bird':
 		score += 1
-		print('score: ', score)
+		print('score: ', score, ' Len: ', len(pipes))
 
 func hit_ground(body):
 	if body.name == 'bird':
@@ -101,3 +110,4 @@ func stop_game():
 	$bird.flying = false
 	game_running = false
 	game_over = false
+	new_game()
