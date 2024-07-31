@@ -113,5 +113,5 @@ func stop_game():
 	$Timer.stop()
 	$bird.flying = false
 	game_running = false
-	game_over = false
+	game_over = true
 	$gameover.show()
