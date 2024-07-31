@@ -40,12 +40,17 @@ func _input(event):
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			if not game_running:
-				start_game()
-			else:
-				if $bird.flying:
-					$bird.flap()
-					check_top()
+			run_game()
+	if Input.is_key_pressed(KEY_SPACE):
+		run_game()
+
+func run_game():
+	if not game_running:
+		start_game()
+	else:
+		if $bird.flying:
+			$bird.flap()
+			check_top()
 
 func start_game():
 	game_running = true
