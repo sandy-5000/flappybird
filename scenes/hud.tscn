@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct8ksnwl8vab6"]
+
+[ext_resource type="FontFile" uid="uid://bvispg5yycexm" path="res://assets/font/FlappyBird.ttf" id="1_pje5r"]
+
+[node name="hud" type="CanvasLayer"]
+
+[node name="score" type="Label" parent="."]
+anchors_preset = -1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("1_pje5r")
+theme_override_font_sizes/font_size = 40
+text = " SCORE:0"

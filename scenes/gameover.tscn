@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvdbsxjtswva0"]
+
+[ext_resource type="FontFile" uid="uid://bvispg5yycexm" path="res://assets/font/FlappyBird.ttf" id="1_rrssc"]
+[ext_resource type="Texture2D" uid="uid://cre0driw78vyl" path="res://assets/images/gameover.png" id="2_l2ad6"]
+
+[node name="gameover" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rrssc")
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
+
+[node name="gameoverLabel" type="Sprite2D" parent="."]
+position = Vector2(243, 365)
+texture = ExtResource("2_l2ad6")

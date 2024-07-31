@@ -19,6 +19,8 @@ func _ready():
 	ground_height = $ground.get_node("Sprite2D_part_1").texture.get_height()
 	$ground.body_entered.connect(hit_ground)
 	$wall.body_entered.connect(hit_wall)
+	$gameover.get_node("Button").pressed.connect(new_game)
+	$gameover.hide()
 	new_game()
 
 func new_game():
@@ -30,6 +32,7 @@ func new_game():
 		pipe.queue_free()
 	pipes.clear()
 	$bird.reset()
+	$gameover.hide()
 
 
 func _input(event):
@@ -48,6 +51,7 @@ func start_game():
 	game_running = true
 	$bird.flying = true
 	$bird.flap()
+	$hud.get_node("score").text = " SCORE:0"
 	$Timer.start()
 
 func is_dead_pipe(pipe):
@@ -90,7 +94,7 @@ func hit_pipe(body):
 func increase_score(body):
 	if body.name == 'bird':
 		score += 1
-		print('score: ', score, ' Len: ', len(pipes))
+		$hud.get_node("score").text = " SCORE:" + str(score)
 
 func hit_ground(body):
 	if body.name == 'bird':
@@ -110,4 +114,4 @@ func stop_game():
 	$bird.flying = false
 	game_running = false
 	game_over = false
-	new_game()
+	$gameover.show()

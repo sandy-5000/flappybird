@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr3ql0xyi40kp"]
+[gd_scene load_steps=9 format=3 uid="uid://dr3ql0xyi40kp"]
 
 [ext_resource type="PackedScene" uid="uid://b38a3vqhy1ln8" path="res://scenes/background.tscn" id="1_ei6xl"]
 [ext_resource type="PackedScene" uid="uid://fq5nrspvyhni" path="res://scenes/bird.tscn" id="1_laxlo"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dmq7n4gtnxhm3" path="res://scenes/pipes.tscn" id="2_30dmj"]
 [ext_resource type="PackedScene" uid="uid://cgecworm856th" path="res://scenes/ground.tscn" id="4_3qvkh"]
 [ext_resource type="PackedScene" uid="uid://dn7s8ifk6oiyi" path="res://scenes/wall.tscn" id="6_yg72h"]
+[ext_resource type="PackedScene" uid="uid://ct8ksnwl8vab6" path="res://scenes/hud.tscn" id="7_ylr1h"]
+[ext_resource type="PackedScene" uid="uid://bvdbsxjtswva0" path="res://scenes/gameover.tscn" id="8_4nknh"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_nyy4s")
@@ -23,5 +25,9 @@ z_index = 1
 wait_time = 1.7
 
 [node name="wall" parent="." instance=ExtResource("6_yg72h")]
+
+[node name="hud" parent="." instance=ExtResource("7_ylr1h")]
+
+[node name="gameover" parent="." instance=ExtResource("8_4nknh")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
